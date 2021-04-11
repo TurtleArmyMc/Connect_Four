@@ -1,0 +1,38 @@
+#
+#   Common
+#
+
+.vscode
+tags
+
+*.temp
+
+*.zip
+
+*.srctrlprj
+*.srctrldb
+*.srctrlbm
+
+
+#
+#   Linux
+#
+
+build/
+bin/
+
+#
+#   Windows
+#
+
+*.dll
+CMakeFiles/
+CMakeCache.txt
+*.exe
+
+# Visual Studio
+*.sln
+*.vcxproj
+*.filters
+*.user
+*.vs
