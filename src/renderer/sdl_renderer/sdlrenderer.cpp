@@ -1,5 +1,5 @@
 #include "sdlrenderer.hpp"
-#include "../localgamehandler.hpp"
+#include "../../localgamehandler.hpp"
 
 bool SDLRenderer::init() {
     // Initialize SDL and SDL_ttf
@@ -86,14 +86,6 @@ bool SDLRenderer::init() {
     voteAgainstRematchButton.setPos(voteAgainstRematchButtonX, voteAgainstRematchButtonY);
 
     return true;
-}
-
-void SDLRenderer::mainloop() {
-    while (!quit) {
-        gameHandler->tick();
-        handleInputs();
-        render();
-    }
 }
 
 void SDLRenderer::render() {
@@ -284,7 +276,7 @@ bool SDLRenderer::dropHeldChip() {
     return false;
 }
 
-void SDLRenderer::handleNumberKeyPress(short k) { gameHandler->makeMove(k); }
+void SDLRenderer::handleNumberKeyPress(int k) { gameHandler->makeMove(k); }
 
 void SDLRenderer::close() {
     gameHandler->quit();

@@ -51,12 +51,12 @@ class SDLRenderer : public Renderer {
 
     int mouseX;
 
-    void handleInputs();
+    virtual void render() override;
+    virtual void handleInputs() override;
     void handleClick(SDL_MouseButtonEvent e);
     void handleKeyPress(SDL_Keycode keycode);
-    void handleNumberKeyPress(short k);
+    void handleNumberKeyPress(int k);
     bool dropHeldChip();
-    void render();
     void clear();
     void clear(SDL_Color &color);
     void drawFilledCircle(SDL_Color &color, SDL_Point center, int radius);
@@ -65,6 +65,5 @@ class SDLRenderer : public Renderer {
 
   public:
     virtual bool init() override;
-    virtual void mainloop() override;
     virtual void close() override;
 };

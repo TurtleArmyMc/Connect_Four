@@ -1,9 +1,19 @@
-#include "renderer.hpp"
-#include "sdl_renderer/sdlrenderer.hpp"
+#ifdef SDL_RENDERER
+#include "renderer/sdl_renderer/sdlrenderer.hpp"
+#endif
+
+#ifdef NCURSES_RENDERER
+#include "renderer/ncurses_renderer/ncursesrenderer.hpp"
+#endif
 
 int main(int argc, char *args[]) {
-    std::unique_ptr<Renderer> renderer;
-    renderer = std::make_unique<SDLRenderer>();
+#ifdef SDL_RENDERER
+    std::unique_ptr<Renderer> renderer = std::make_unique<SDLRenderer>();
+#endif
+
+#ifdef NCURSES_RENDERER
+    std::unique_ptr<Renderer> renderer = std::make_unique<NCursesRenderer>();
+#endif
 
     if (!renderer->init()) {
         printf("Could not initialize renderer!\n");
